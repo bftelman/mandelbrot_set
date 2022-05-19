@@ -19,7 +19,7 @@ int mandelbrot(...)
 ### Installation
 ```sh
 git clone https://github.com/amamdemous/mandelbrot_set
-cd mandelbrotset/
+cd mandelbrot_set/
 make
 ```
 
