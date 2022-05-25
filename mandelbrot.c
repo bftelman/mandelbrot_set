@@ -5,12 +5,13 @@
 int mandelbrot(double c_real, double c_imag, int max_iter) {
 	int iter = 0;
 	double z_real = 0.0, z_imag = 0.0;
-	double temp;
-	
-	while(iter < max_iter && z_real*z_real + z_imag*z_imag < 4.0) {
-		temp = z_real*z_real - z_imag*z_imag + c_real;
-		z_imag = 2.0*z_real*z_imag + c_imag;
-		z_real = temp;
+	double temp_real = 0.0, temp_imag = 0.0;
+
+	while(iter < max_iter && temp_real + temp_imag < 4.0) {
+		z_imag = 2 * z_real * z_imag + c_imag;
+		z_real = temp_real - temp_imag + c_real;
+		temp_real = z_real * z_real;
+		temp_imag = z_imag * z_imag;
 		iter++;
 	}
 
@@ -18,7 +19,7 @@ int mandelbrot(double c_real, double c_imag, int max_iter) {
 }
 
 int main(int argc, char **argv) {
-	
+
 	if (argc < 4) {
 		printf("Not enough arguments supplied!\n");
 		return 1;
