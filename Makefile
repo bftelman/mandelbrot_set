@@ -10,3 +10,6 @@ debug:
 
 view:
 	xdg-open output.ppm
+
+clean:
+	rm *.ppm ./mandelbrot
